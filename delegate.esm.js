@@ -1,5 +1,5 @@
 export default function delegate(selector, fn) {
-  const fns = (typeof selector === 'string') ? { selector: fn } : selector;
+  const fns = (typeof selector === 'string') ? { [selector]: fn } : selector;
   
   return function (e) {
     for (let target = e.target; target && target !== e.currentTarget; target = target.parentNode) {
