@@ -6,8 +6,7 @@ function delegate(selector, fn) {
 
     for (target = e.target; target && target !== e.currentTarget; target = target.parentNode) {
       for (selector in fns) {
-        if (!fns.hasOwnProperty(selector)) continue;
-        if ((selector === 'default' && !called) || target.matches(selector)) {
+        if (fns.hasOwnProperty(selector) && target.matches(selector)) {
           fns[selector].call(target, e);
         }
       }
