@@ -1,5 +1,13 @@
 function delegate(selector, fn) {
-  var fns = (typeof selector === 'string') ? { selector: fn } : selector;
+  var fns;
+  
+  if (typeof selector === 'string') {
+    fns = {};
+    fns[selector] = fn
+  }
+  else {
+    fns = selector;
+  }
   
   return function (e) {
     var target, selector;
