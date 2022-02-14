@@ -11,7 +11,7 @@ This utility function offers a simple syntax for event delegation that also ties
 ```js
 const parent = document.querySelector('.parent');
 
-parent.addEventListener(delegate('.child', function (e) {
+parent.addEventListener('click', delegate('.child', function (e) {
   console.log(this); // the child element
 }));
 ```
@@ -21,7 +21,7 @@ It is also possible to add multiple handlers for different groups of children
 ```js
 const parent = document.querySelector('.parent');
 
-parent.addEventListener(delegate({
+parent.addEventListener('click', delegate({
   '.purple': function () { console.log('You clicked a purple element.'); },
   '.green': function () { console.log('You clicked a green element.'); },
   '.mauve': function () { console.log('You clicked a mauve element.'); },
